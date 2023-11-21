@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +20,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('customer', [CustomerControler::class,'index']);
+Route::get('customer', [CustomerController::class,'getAll']);
+
+
+Route::post('customer', [CustomerController::class,'save']);
+
+
+Route::put('customer/edit/{id}', [CustomerController::class,'edit']);
+
+
+Route::delete('customer/edit/{id}', [CustomerController::class,'delete']);
+
+
+
