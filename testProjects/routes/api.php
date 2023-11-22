@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\AddressesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,12 @@ Route::put('customer/edit/{id}', [CustomerController::class,'edit']);
 
 
 Route::delete('customer/edit/{id}', [CustomerController::class,'delete']);
+
+
+Route::get('addresses', [AddressesController::class,'index']);
+
+Route::get('customer/{id}', [CustomerController::class,'getCusByID']);
+
 
 
 

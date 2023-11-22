@@ -18,6 +18,18 @@ class CustomerController extends Controller
         return response()->json($data,200);
     }
 
+    public function getCusByID($id)
+    {
+        $customer = Customer::find($id);
+        $data = [
+            'status'=>200,
+            'customer'=>$customer->addresses
+        ];
+        return response()->json($data,200);
+    }
+
+
+
     public function save(Request $request){
 
         $validator = Validator::make($request->all(),[
