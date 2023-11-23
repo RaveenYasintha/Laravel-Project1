@@ -13,4 +13,9 @@ class Address extends Model
         'cus_id',
         'address'
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

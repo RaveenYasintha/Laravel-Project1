@@ -35,7 +35,7 @@ Route::delete('customer/edit/{id}', [CustomerController::class,'delete']);
 
 Route::get('addresses', [AddressesController::class,'index']);
 
-Route::get('customer/{id}', [CustomerController::class,'getCusByID']);
+Route::get('customer/address/{id}', [CustomerController::class,'getAddressByID']);
 
 
 

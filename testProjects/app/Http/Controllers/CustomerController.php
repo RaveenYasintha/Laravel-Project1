@@ -18,7 +18,7 @@ class CustomerController extends Controller
         return response()->json($data,200);
     }
 
-    public function getCusByID($id)
+    public function getAddressByID($id)
     {
         $customer = Customer::find($id);
         $data = [
@@ -49,6 +49,19 @@ class CustomerController extends Controller
             return response()->json($data, 422);
         }
         else{
+
+            if($request->hasFile('image')){
+                $img = $request->image;
+                $imageName = time().'.'. $img->getClientOriginalExtension();
+                $img->move(public_path('images'),$imageName);
+
+                $imagePath = 'images/' . $imageName;
+
+            }else{
+                $imagePath = null;
+            }
+
+
             $customer = new Customer;
 
             $customer->name=$request->name;
