@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\AddressesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,23 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('customer', [CustomerController::class, 'getAll']);
 
-Route::get('customer', [CustomerController::class,'getAll']);
+Route::post('customer', [CustomerController::class, 'save']);
 
+Route::put('customer/edit/{id}', [CustomerController::class, 'edit']);
 
-Route::post('customer', [CustomerController::class,'save']);
+Route::delete('customer/edit/{id}', [CustomerController::class, 'delete']);
 
-
-Route::put('customer/edit/{id}', [CustomerController::class,'edit']);
-
-
-Route::delete('customer/edit/{id}', [CustomerController::class,'delete']);
-
-
-Route::get('addresses', [AddressesController::class,'index']);
-
-Route::get('customer/address/{id}', [CustomerController::class,'getAddressByID']);
-
-
-
-
+Route::get('customer/address/{id}', [CustomerController::class, 'getAddressByID']);

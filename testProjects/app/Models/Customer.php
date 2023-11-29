@@ -13,6 +13,7 @@ class Customer extends Model
         'name',
         'contact',
         'salary',
+        'image',
     ];
 
     public function addresses()

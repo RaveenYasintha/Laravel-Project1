@@ -10,8 +10,8 @@ class Address extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cus_id',
-        'address'
+        'address',
+        'cus_id'
     ];
 
     public function customer()
